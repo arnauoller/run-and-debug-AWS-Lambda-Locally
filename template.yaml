@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM Template for Lambda local Run and Debug Demo
+  
+Resources:
+
+  NodeLambdaDemoFunction:
+    Type: AWS::Serverless::Function #Creates an AWS Lambda function
+    Properties: 
+      CodeUri: lambdaHandlers/ # The path to the folder containing the function code
+      Handler: nodeLambdaHandler.lambdaHandler # The name of the function (file) and the handler
+      Runtime: nodejs16.x # The runtime environment for the Lambda function. Since we are using Node.js, we use nodejs16.x but if the lambda Hanlder was written for example in Java, we would define here java11 or any other Java version
